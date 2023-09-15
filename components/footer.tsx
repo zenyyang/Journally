@@ -38,7 +38,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex items-center justify-center mt-10 text-muted-foreground">
-        <p>&copy; 2023 Journally</p>
+        <p>&copy; 2023 Journally. All rights reserved</p>
       </div>
     </div>
   );
