@@ -1,20 +1,11 @@
 "use client";
 
-import axios from "axios";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { ChatCompletionMessageParam } from "openai/resources/chat/index.mjs";
-
 import { useCompletion } from "ai/react";
 
 import Container from "@/components/ui/container";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 
 const PlaygroundDashboard = () => {
   const { completion, input, handleInputChange, handleSubmit, isLoading } =
@@ -27,8 +18,8 @@ const PlaygroundDashboard = () => {
           <p className="mx-5 py-3 text-xl font-medium">Write your journal</p>
           <Button className="mr-5 h-8">Save</Button>
         </div>
-        <Separator />
       </Container>
+      <Separator />
       <div className="p-5">
         <div className="grid md:grid-cols-2 gap-5">
           <div>
