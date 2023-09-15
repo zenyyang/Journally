@@ -89,7 +89,7 @@ export default function Home() {
             suit your mood, preferences, and storytelling style.
           </p>
         </div>
-        <div className="lg:mx-48 mx-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <div className="lg:mx-48 mx-10 grid md:grid-cols-3 lg:grid-cols-4 gap-5">
           <Card>
             <CardHeader className="text-[#C3073F] bg-green-100 border rounded-md">
               <CardTitle>Silent Tone</CardTitle>
@@ -155,7 +155,11 @@ export default function Home() {
           </Card>
         </div>
       </div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <svg
+        className="mt-[-5px]"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+      >
         <path
           fill="#C3073F"
           fill-opacity="1"
