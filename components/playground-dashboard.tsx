@@ -13,12 +13,10 @@ const PlaygroundDashboard = () => {
 
   return (
     <div className="border rounded-lg my-5">
-      <Container>
-        <div className="flex items-center justify-between">
-          <p className="mx-5 py-3 text-xl font-medium">Write your journal</p>
-          <Button className="mr-5 h-8">Save</Button>
-        </div>
-      </Container>
+      <div className="flex items-center justify-between">
+        <p className="mx-5 py-3 text-xl font-medium">Write your journal</p>
+        <Button className="mr-5 h-8">Save</Button>
+      </div>
       <Separator />
       <div className="p-5">
         <div className="grid md:grid-cols-2 gap-5">
