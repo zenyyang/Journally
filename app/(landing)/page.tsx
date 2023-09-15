@@ -85,8 +85,8 @@ export default function Home() {
           <p className="font-bold text-3xl font-sans pb-3">Tone It Your Way</p>
           <p className="font-light text-lg sm:w-[80%] font-sans pb-5">
             is our invitation to users seeking a uniquely tailored journaling
-            adventure. With this feature, you can shape your journal's voice to
-            suit your mood, preferences, and storytelling style.
+            adventure. With this feature, you can shape your journal&apos;s
+            voice to suit your mood, preferences, and storytelling style.
           </p>
         </div>
         <div className="lg:mx-48 mx-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
@@ -113,11 +113,11 @@ export default function Home() {
             <CardContent className="mt-5">
               <p>
                 At the crack of dawn, I stirred from my slumber at 7 AM,
-                beckoned by the day's first light. By 8 AM, the soothing cascade
-                of a warm shower and a nourishing breakfast set the stage for my
-                journey. With the clock ticking toward 9 AM, I embarked on the
-                path to knowledge, arriving at the hallowed halls of academia
-                ...
+                beckoned by the day&apos;s first light. By 8 AM, the soothing
+                cascade of a warm shower and a nourishing breakfast set the
+                stage for my journey. With the clock ticking toward 9 AM, I
+                embarked on the path to knowledge, arriving at the hallowed
+                halls of academia ...
               </p>
             </CardContent>
           </Card>
