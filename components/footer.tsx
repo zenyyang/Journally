@@ -19,10 +19,10 @@ const Footer = () => {
           <p className="font-light">
             Journally is a platform that helps you transform your daily
             experiences and moments into compelling and memorable stories.
-            Whether it&apos;s documenting your personal life, sharing your
-            thoughts, or recounting your adventures, Journally provides the
-            tools and space to craft engaging narratives that capture the
-            essence of your day-to-day life.
+            Whether its documenting your personal life, sharing your thoughts,
+            or recounting your adventures, Journally provides the tools and
+            space to craft engaging narratives that capture the essence of your
+            day-to-day life.
           </p>
           <div className=" text-muted-foreground">
             <p className="font-semibold text-xl pt-5"> Connect with us: </p>
