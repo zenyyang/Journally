@@ -35,6 +35,7 @@
 
 import OpenAI from 'openai';
 import { OpenAIStream, StreamingTextResponse } from 'ai';
+import { NextResponse } from 'next/server';
  
 // Create an OpenAI API client (that's edge friendly!)
 const openai = new OpenAI({
@@ -44,17 +45,25 @@ const openai = new OpenAI({
 // Set the runtime to edge for best performance
 export const runtime = 'edge';
  
-export async function POST(req: Request) {
+export async function POST(req: Request, {params} : {params: {personality: string}}) {
   const { prompt } = await req.json();
+  const {personality} = params;
+
+  if(!personality) return new NextResponse("Personality not provided", {status: 400});
  
   // Ask OpenAI for a streaming completion given the prompt
   const response = await openai.completions.create({
     model: 'text-davinci-003',
     stream: true,
-    temperature: 0.6,
     max_tokens: 3000,
-    prompt: `Turn the provided lists into a jounal entry (100words) ${prompt}`,
+    prompt: `You are an imaginative journal writer named [John]. You have a ${personality} personality. I will provide you with a list of prompts. Please write a journal entry containing a maximum of 200 words based on the prompts while adopting your assigned personality. Do not include this instruction text in your response.
+
+    Prompts:
+    ${prompt}
+    
+    Response:`,
   });
+
   // Convert the response into a friendly text-stream
   const stream = OpenAIStream(response);
   // Respond with the stream

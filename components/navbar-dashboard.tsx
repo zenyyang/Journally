@@ -19,17 +19,15 @@ const NavbarDashboard = () => {
   if (!isMounted) return null;
 
   return (
-    <div>
-      <Container>
-        <div className="relative px-4 sm:pr-6 lg:pr-8 flex h-16 items-center">
-          <Link href="/" className="px-4 flex lg:ml-0">
-            <Image alt="logo" src={Logo} width={24} />
-          </Link>
-          <div className="ml-auto flex items-center gap-x-4">
-            <UserButton />
-          </div>
+    <div className="lg:px-48 px-10v">
+      <div className="relative px-4 sm:pr-6 lg:pr-8 flex h-16 items-center">
+        <Link href="/" className="px-4 flex lg:ml-0">
+          <Image alt="logo" src={Logo} width={24} />
+        </Link>
+        <div className="ml-auto flex items-center gap-x-4">
+          <UserButton />
         </div>
-      </Container>
+      </div>
     </div>
   );
 };
