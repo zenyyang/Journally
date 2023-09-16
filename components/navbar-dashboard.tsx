@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import Container from "@/components/ui/container";
-
 import Logo from "../public/images/logoo.png";
 import { UserButton } from "@clerk/nextjs";
 
