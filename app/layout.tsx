@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 import Navbar from "@/components/navbar";
+import { ToastProvider } from "@/providers/toast-provider";
 
 const urbanist = Urbanist({ subsets: ["latin"] });
 
@@ -19,7 +20,10 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={urbanist.className}>{children}</body>
+        <body className={urbanist.className}>
+          <ToastProvider />
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   );
