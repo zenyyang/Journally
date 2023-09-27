@@ -23,7 +23,7 @@ import {
 import { AlertModal } from "@/components/modals/alert-modal";
 
 interface CellActionProps {
-  userId: string;
+  userId: string | null | undefined;
   journalId: string;
 }
 export const CellAction: React.FC<CellActionProps> = ({

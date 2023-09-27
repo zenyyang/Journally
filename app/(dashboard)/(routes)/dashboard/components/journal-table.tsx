@@ -27,7 +27,7 @@ import { Separator } from "@/components/ui/separator";
 import { CellAction } from "./cell-action";
 
 interface JournalProps {
-  id: string;
+  id: string | null | undefined;
 }
 
 const JournalTable: React.FC<JournalProps> = ({ id }) => {
