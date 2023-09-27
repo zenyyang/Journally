@@ -14,11 +14,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 import { Button } from "@/components/ui/button";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
 
 import { AlertModal } from "@/components/modals/alert-modal";
 
@@ -30,9 +25,6 @@ export const CellAction: React.FC<CellActionProps> = ({
   userId,
   journalId,
 }) => {
-  const router = useRouter();
-  const params = useParams();
-
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
 
