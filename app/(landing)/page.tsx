@@ -2,6 +2,7 @@
 
 import { MoveRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@clerk/nextjs";
 
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
@@ -15,9 +16,48 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import JournalTableLanding from "@/components/journal-table-landing";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function Home() {
   const router = useRouter();
+  const { userId } = useAuth();
+
+  const headline = userId ? "Continue your Journal" : "Start Journaling now";
+
+  const freqQuestions = [
+    {
+      question: "What is Journally?",
+      answer:
+        "Journally is an AI-powered journaling website designed to help individuals reflect on their daily lives, set and achieve goals, and gain insights into their personal growth and well-being through journaling.",
+    },
+    {
+      question: "How does Journally use AI?",
+      answer:
+        "Journally uses advanced natural language processing (NLP) and machine learning technologies to analyze journal entries. It provides personalized insights, identifies emotional patterns, and offers suggestions for personal growth based on the user's journal content.",
+    },
+    {
+      question: "Is Journally free to use?",
+      answer:
+        "Yes, Journally offers a free basic version for users. However, there may be premium features or subscription options for users who want access to advanced analytics and additional functionalities in the future.",
+    },
+    {
+      question:
+        "How can Journally ensure the privacy and security of my journal entries?",
+      answer:
+        "Journally takes user privacy and data security seriously. We employ industry-standard encryption protocols and follow best practices to protect user data. You have control over who can access your journal entries.",
+    },
+    {
+      question: "What platforms and devices is Journally available on?",
+      answer:
+        "Journally is accessible through web browsers on desktop computers, laptops, and mobile devices. We are also working on mobile apps for a seamless on-the-go journaling experience.",
+    },
+  ];
 
   return (
     <>
@@ -41,7 +81,7 @@ export default function Home() {
               }}
               className="flex items-center rounded-lg bg-white px-4 py-2 font-ligh text-[#C3073F] text-md tracking-wider"
             >
-              Start journaling now
+              {headline}
               <MoveRight className="ml-2" width={16} />
             </Button>
           </div>
@@ -95,16 +135,18 @@ export default function Home() {
           <div className="lg:mx-48 mx-10 grid md:grid-cols-3 lg:grid-cols-4 gap-5">
             <Card className="border rounded-lg">
               <CardHeader className="text-[#C3073F] bg-green-100 rounded-lg">
-                <CardTitle>Silent Tone</CardTitle>
-                <CardDescription>Lacks of emotions</CardDescription>
+                <CardTitle>Story Telling</CardTitle>
+                <CardDescription>Fictional and Fantasy</CardDescription>
               </CardHeader>
               <CardContent className="mt-5">
                 <p>
-                  At 7 AM, I woke up, followed by a shower and breakfast at 8
-                  AM. By 9 AM, I was at school, and the first session ended at
-                  11 AM. Lunch was with friends, during which we discussed
-                  K-dramas. I returned home at 4 PM and had dinner with my
-                  family. Finally, at 10 PM, it was time to sleep.
+                  At 7 AM, the day began with a reluctant awakening. An 8 AM
+                  shower and breakfast followed, setting the stage for my school
+                  journey at 9 AM, which concluded at 11 AM. Lunchtime was a
+                  rendezvous with friends, and K-dramas became the central theme
+                  of our animated discussion. The clock struck 4 PM as I
+                  returned home for dinner with the family. Finally, at 10 PM, I
+                  surrendered to the embrace of sleep.
                 </p>
               </CardContent>
             </Card>
@@ -158,11 +200,7 @@ export default function Home() {
             </Card>
           </div>
         </div>
-        <svg
-          className="mt-[-5px]"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 320"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
             fill="#C3073F"
             fill-opacity="1"
@@ -178,9 +216,27 @@ export default function Home() {
             list format. Users can effortlessly structure and categorize their
             entries, fostering clarity and accessibility.
           </p>
+          <JournalTableLanding />
         </div>
-        <Separator />
-        <div className="lg:mx-48 mx-10 mt-10">
+        <div className="lg:mx-48 mx-10 pt-20">
+          <p className="font-bold text-3xl font-sans pb-3">
+            Frequently Asked Questions
+          </p>
+          <div className="mb-10">
+            {freqQuestions.map((item) => (
+              <Accordion type="single" collapsible className="text-lg">
+                <AccordionItem value="item-1">
+                  <AccordionTrigger>{item.question}</AccordionTrigger>
+                  <AccordionContent className="text-sm">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            ))}
+          </div>
+        </div>
+        <Separator className="mt-20" />
+        <div className="lg:mx-48 mx-10">
           <Footer />
         </div>
       </div>

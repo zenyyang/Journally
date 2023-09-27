@@ -12,7 +12,9 @@ const DashboardPage = () => {
         <PlaygroundDashboard />
       </div>
       <Separator />
-      <Footer />
+      <div className="lg:mx-48 mx-10">
+        <Footer />
+      </div>
     </div>
   );
 };

@@ -4,17 +4,18 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import Container from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { usePathname, useRouter } from "next/navigation";
 
 import Logo from "../public/images/logo-white.png";
+import { UserButton, useAuth } from "@clerk/nextjs";
 
 const Navbar = () => {
   const [isMounted, setIsMounted] = useState(false);
 
   const router = useRouter();
   const pathname = usePathname();
+  const { userId } = useAuth();
 
   useEffect(() => {
     setIsMounted(true);
@@ -33,14 +34,18 @@ const Navbar = () => {
           <Image alt="logo" src={Logo} width={32} />
         </Link>
         <div className="ml-auto flex items-center gap-x-4">
-          <Button
-            onClick={() => {
-              router.push("/sign-in");
-            }}
-            className="flex items-center rounded-full bg-white px-4 py-2 text-[#C3073F]"
-          >
-            Sign In
-          </Button>
+          {userId ? (
+            <UserButton />
+          ) : (
+            <Button
+              onClick={() => {
+                router.push("/sign-in");
+              }}
+              className="flex items-center rounded-full bg-white px-4 py-2 text-[#C3073F]"
+            >
+              Sign In
+            </Button>
+          )}
         </div>
       </div>
     </div>

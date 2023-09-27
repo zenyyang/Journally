@@ -27,11 +27,13 @@ import JournalForm from "./journal-form";
 import { useAuth } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import JournalTable from "./journal-table";
+import { Input } from "@/components/ui/input";
 
 const PlaygroundDashboard = () => {
   const { userId } = useAuth();
   const router = useRouter();
   const [value, setValue] = useState("");
+  const [title, setTitle] = useState("");
   const [date, setDate] = useState<Date | undefined>(new Date());
   const buttonText = date ? date.toDateString() : "Pick a date";
 
@@ -73,7 +75,7 @@ const PlaygroundDashboard = () => {
       <div className="border rounded-lg my-10">
         <div className="flex items-center justify-between">
           <p className="mx-5 py-3 text-xl font-medium">Write your journal</p>
-          <JournalForm content={input} title={buttonText} />
+          <JournalForm content={input} title={title} date={buttonText} />
         </div>
         <Separator />
         <div className="p-5">
@@ -81,6 +83,12 @@ const PlaygroundDashboard = () => {
             <div className="pt-2">
               <div className="flex items-center mb-3">
                 <p className="font-medium ">Your input</p>
+                <Input
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  className="ml-auto w-40 h-10 font-medium"
+                  placeholder="Title"
+                />
                 <Popover>
                   <PopoverTrigger asChild>
                     <Button
@@ -185,11 +193,7 @@ const PlaygroundDashboard = () => {
           </div>
         </div>
       </div>
-      <div className="border rounded-lg my-10">
-        <div className=" items-center justify-between">
-          <p className="mx-5 py-3 text-xl font-medium">Journal Table</p>
-        </div>
-        <Separator />
+      <div>
         <JournalTable id={userId} />
       </div>
     </div>

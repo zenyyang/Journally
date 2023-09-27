@@ -37,6 +37,8 @@ export async function GET(req:Request) {
         const journals = await db.journal.findMany({
             where: {
                 userId
+            }, orderBy: {
+                createdAt: "desc"
             }
         });
 

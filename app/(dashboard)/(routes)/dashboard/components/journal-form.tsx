@@ -6,11 +6,11 @@ import { toast } from "react-hot-toast";
 import { FormEvent, useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
 
 interface JournalFormProps {
-  title: string | undefined;
+  title: string;
   content: string;
+  date: string;
 }
 
 const JournalForm: React.FC<JournalFormProps> = ({ title, content }) => {
@@ -31,7 +31,9 @@ const JournalForm: React.FC<JournalFormProps> = ({ title, content }) => {
         location.reload();
       }, 1000);
     } catch (error) {
-      toast.error("Something went wrong");
+      if (!title) toast.error("Title is required");
+      else if (!content) toast.error("Content is required");
+      else toast.error("Something went wrong");
     } finally {
       setLoading(false);
     }
@@ -40,7 +42,7 @@ const JournalForm: React.FC<JournalFormProps> = ({ title, content }) => {
   return (
     <div className="mr-5">
       <form onSubmit={onSubmit}>
-        <Button type="submit" disabled={loading}>
+        <Button type="submit" className="h-8" disabled={loading}>
           Save
         </Button>
       </form>
