@@ -224,9 +224,15 @@ export default function Home() {
           </p>
           <div className="mb-10">
             {freqQuestions.map((item) => (
-              <Accordion type="single" collapsible className="text-lg">
+              <Accordion
+                type="single"
+                collapsible
+                className="md:text-lg text-md"
+              >
                 <AccordionItem value="item-1">
-                  <AccordionTrigger>{item.question}</AccordionTrigger>
+                  <AccordionTrigger className="text-left">
+                    {item.question}
+                  </AccordionTrigger>
                   <AccordionContent className="text-sm">
                     {item.answer}
                   </AccordionContent>

@@ -6,7 +6,7 @@ import { toast } from "react-hot-toast";
 import { FormEvent, useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 interface JournalFormProps {
   title: string;
@@ -14,24 +14,24 @@ interface JournalFormProps {
   date: string;
 }
 
-const JournalForm: React.FC<JournalFormProps> = ({ title, content }) => {
+const JournalEditForm: React.FC<JournalFormProps> = ({ title, content }) => {
   const { userId } = useAuth();
   const router = useRouter();
+  const params = useParams();
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     try {
       e.preventDefault();
       setLoading(true);
-      await axios.post(`/api/${userId}/journals`, {
+      await axios.patch(`/api/${userId}/journals/${params.journalId}`, {
         title,
         content,
-        userId,
       });
-      toast.success("Journal saved successfully");
+      toast.success("Journal edited successfully");
       setTimeout(() => {
-        location.reload();
-      }, 1000);
+        router.push("/dashboard");
+      }, 500);
     } catch (error) {
       if (!title) toast.error("Title is required");
       else if (!content) toast.error("Content is required");
@@ -45,11 +45,11 @@ const JournalForm: React.FC<JournalFormProps> = ({ title, content }) => {
     <div className="mr-5">
       <form onSubmit={onSubmit}>
         <Button type="submit" className="h-8" disabled={loading}>
-          Save
+          Edit
         </Button>
       </form>
     </div>
   );
 };
 
-export default JournalForm;
+export default JournalEditForm;

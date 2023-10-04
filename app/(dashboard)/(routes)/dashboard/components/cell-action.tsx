@@ -27,6 +27,7 @@ export const CellAction: React.FC<CellActionProps> = ({
 }) => {
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
+  const router = useRouter();
 
   const onConfirm = async () => {
     try {
@@ -61,8 +62,11 @@ export const CellAction: React.FC<CellActionProps> = ({
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuLabel>Actions</DropdownMenuLabel>
-          <DropdownMenuItem>
-            {/* pop up form */}
+          <DropdownMenuItem
+            onClick={() => {
+              router.push(`/dashboard/edit/${journalId}`);
+            }}
+          >
             <Edit className="mr-2 h-4 w-4" />
             Update
           </DropdownMenuItem>

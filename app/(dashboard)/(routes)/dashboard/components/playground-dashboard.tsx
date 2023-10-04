@@ -26,7 +26,6 @@ import { Calendar } from "@/components/ui/calendar";
 import JournalForm from "./journal-form";
 import { useAuth } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
-import JournalTable from "./journal-table";
 import { Input } from "@/components/ui/input";
 
 const PlaygroundDashboard = () => {
@@ -81,34 +80,36 @@ const PlaygroundDashboard = () => {
         <div className="p-5">
           <div className="grid md:grid-cols-2 gap-5">
             <div className="pt-2">
-              <div className="flex items-center mb-3">
-                <p className="font-medium ">Your input</p>
-                <Input
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  className="ml-auto w-40 h-10 font-medium"
-                  placeholder="Title"
-                />
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant={"outline"}
-                      className="w-[240px] pl-3 text-left font-normal ml-auto"
-                      placeholder="Pick a date"
-                    >
-                      <span>{buttonText}</span>
-                      <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-[240px] p-0" align="start">
-                    <Calendar
-                      mode="single"
-                      selected={date}
-                      onSelect={setDate}
-                      className="rounded-md border"
-                    />
-                  </PopoverContent>
-                </Popover>
+              <div className="grid md:grid-cols-3 items-center mb-3">
+                <p className="font-medium md:mb-0 mb-3 ">Your input</p>
+                <div className="flex items-center justify-between gap-2 col-span-2">
+                  <Input
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    className="md:w-20 w-20 h-10 font-medium"
+                    placeholder="Title"
+                  />
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant={"outline"}
+                        className="md:w-[240px] pl-3 text-left font-normal ml-auto"
+                        placeholder="Pick a date"
+                      >
+                        <span>{buttonText}</span>
+                        <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-[240px] p-0" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={date}
+                        onSelect={setDate}
+                        className="rounded-md border"
+                      />
+                    </PopoverContent>
+                  </Popover>
+                </div>
               </div>
               <form onSubmit={handleSubmit}>
                 <Textarea
@@ -131,10 +132,10 @@ const PlaygroundDashboard = () => {
                 )}
               </form>
             </div>
-            <div className="">
-              <div className="flex items-center justify-between">
-                <p className=" font-medium mb-3">AI assisted output</p>
-                <div className="mb-5">
+            <div>
+              <div className="sm:grid md:flex items-center justify-between">
+                <p className=" font-medium mb-3 ">AI assisted output</p>
+                <div className="mb-5 md:ml-auto ">
                   <Popover open={open} onOpenChange={setOpen}>
                     <PopoverTrigger asChild>
                       <Button
@@ -193,9 +194,7 @@ const PlaygroundDashboard = () => {
           </div>
         </div>
       </div>
-      <div>
-        <JournalTable id={userId} />
-      </div>
+      <div>{/* <JournalTable id={userId} /> */}</div>
     </div>
   );
 };

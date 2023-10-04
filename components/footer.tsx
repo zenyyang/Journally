@@ -11,7 +11,6 @@ const Footer = () => {
           <Link href={"/"} className="mt-10">
             <Image src={Logo} alt="Journally Logo" width={200} />
           </Link>
-          {/* <h3 className="font-semibold text-xl "> Journally </h3> */}
         </div>
         <div className="flex-row items-center md:col-span-3 col-span-2 ml-20 mt-7">
           <p className="font-light">

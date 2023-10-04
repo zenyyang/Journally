@@ -91,8 +91,14 @@ const JournalTable: React.FC<JournalProps> = ({ id }) => {
                     <PopoverTrigger asChild>
                       <Card>
                         <CardHeader>
-                          <CardTitle key={journal.id}>
+                          <CardTitle
+                            key={journal.id}
+                            className="flex justify-between"
+                          >
                             {journal.title}
+                            <div>
+                              <CellAction userId={id} journalId={journal.id} />
+                            </div>
                           </CardTitle>
                           <CardDescription>
                             Journal entry for{" "}
