@@ -1,23 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Journally: Your Personalized Journaling Experience
+[Journally](https://journallyy.vercel.app/) is your dedicated space for documenting your life, thoughts, and adventures. With our cutting-edge technology, we empower you to reflect, set goals, and embrace positive change.
 
-## Getting Started
+### Key Features
+- Seamless Journaling: With Journally, jotting down your day is effortless. Simply list your activities, and watch as our platform weaves them into unforgettable stories. Creative expression meets simplicity!
 
-First, run the development server:
+- AI-Assisted Output: Experience the magic of AI! After entering your daily activities, our system generates personalized journal entries, adding depth and flair to your experiences. Your mundane activities become engaging tales.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- Tone It Your Way: Tailor your journal's voice to match your mood and style. Whether you prefer reflective, humorous, imaginative, or fictional tones, Journally invites you to craft your unique storytelling adventure.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Organized Journaling: Our intuitive table list format allows you to organize your thoughts effortlessly. Categorize your entries, ensuring clarity and easy accessibility whenever you revisit your memories.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Privacy and Security: Rest easy knowing your journal entries are secure. Journally prioritizes your privacy, employing robust measures to safeguard your personal narratives.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Stack:
+- Next.js
+- Typescript 
+- Tailwind
+- Prisma
 
+## Credits
+You are free to share and distribute the work in any medium or format, provided that you give appropriate credit, do not use it for commercial purposes, and do not make any modifications.
+  
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
